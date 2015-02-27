@@ -1,0 +1,27 @@
+= Darktable =
+Darktable is a great OpenSource workflow editor. Like adobe Lightroom, but for Linux.
+
+= Get the Software =
+
+You need to add the DarkTable ppa (assuming you are  running Ubuntu) this is accomplished like this
+
+ sudo add-apt-repository ppa:pmjdebruijn/darktable-release
+
+Once you have got that setup
+
+   sudo apt-get update
+   sudo apt-get install darktable
+
+== Purge ==
+Sometime it is necessary to purge
+
+
+== QUit ==
+Just press the quit button
+
+
+
+<syntaxhighlight lang="python">
+   for a in range(1,20):
+       print a
+</syntaxhighlight>
