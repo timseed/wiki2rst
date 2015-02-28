@@ -18,8 +18,8 @@ class wiki2rst(object):
        self.level1=re.compile('^(=)')
        self.level2=re.compile('^(==)')
        self.level3=re.compile('^(===)')
-       self.langstart=re.compile(r"<syntaxhighlight lang=\"([a-zA-Z]+)\">")
-       self.langend=re.compile(r'</syntaxhighlight>')
+       self.langstart=re.compile(r'[ ]?<syntaxhighlight[ ]+lang=\"([a-zA-Z]+)\">')
+       self.langend=re.compile(r'[ ]?</syntaxhighlight>')
        self.convert()
 
    def setindent(self,i):
@@ -50,11 +50,11 @@ class wiki2rst(object):
               self.indent=0 
               line=line.replace('=','').strip()
               line=str.format('\n%s\n%s\n%s'%('~'*len(line),line,'~'*len(line)))
-           elif self.langstart.match(line):
-              p=self.langstart.match(line)
+           elif self.langstart.search(line):
+              p=self.langstart.search(line)
               self.incode=1
               line='.. code:: '+ p.group(1).strip()+'\n'
-           elif self.langend.match(line):
+           elif self.langend.search(line):
               self.incode=0
               line=' '
            self.lineout(line)
