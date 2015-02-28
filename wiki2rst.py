@@ -53,7 +53,7 @@ class wiki2rst(object):
            elif self.langstart.search(line):
               p=self.langstart.search(line)
               self.incode=1
-              line='.. code:: '+ p.group(1).strip()+'\n'
+              line='\n.. code:: '+ p.group(1).strip()+'\n'
            elif self.langend.search(line):
               self.incode=0
               line=' '
